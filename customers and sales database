@@ -1,6 +1,0 @@
-select count(customers.acctnum)
-from BIT_DB.FebSales
-left join BIT_DB.customers
-on customers.order_id = FebSales.orderID
-where 'Product'>=2
-order by avg(quantity*price)
