@@ -1,11 +1,48 @@
-WITH safety_rating_table AS (
-select street, avg(safetyrating) as 'rating'
-from CityBikeLanes
-group by street
-)
+--Q.Show Customers (their full names, customer ID, and country) who are not in the US. (Hint: != or <> can be used to say "is not equal to").
 
-select street,
-rating,
-'safe lane' as 'label'
-from safety_rating_table
-where rating >= 4
+--Q.Show only the Customers from Brazil.
+
+--Q.Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+
+--Q.Show the Employees who are Sales Agents.
+
+--Q.Find a unique/distinct list of billing countries from the Invoice table.
+
+select distinct BillingCountry
+from invoices
+
+--Q.Provide a query that shows the invoices associated with each sales agent. The resulting table should include the Sales Agent's full name.
+
+--Q.Show the Invoice Total, Customer name, Country, and Sales Agent name for all invoices and customers.
+
+--Q.How many Invoices were there in 2009?
+
+--Q.What are the total sales for 2009? Chatgpt corrected slightly.
+
+SELECT SUM(Total) AS TotalSales
+FROM invoices
+WHERE strftime('%Y', InvoiceDate) = '2009'
+
+--Q.Write a query that includes the purchased track name with each invoice line ID.
+
+--Q.Write a query that includes the purchased track name AND artist name with each invoice line ID
+
+--Q.Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre. corrected by Chatgpt
+
+SELECT 
+    tracks.Name AS TrackName, 
+    albums.Title AS AlbumName, 
+    media_types.Name AS MediaType, 
+    genres.Name AS Genre
+FROM 
+    tracks
+JOIN 
+    albums ON tracks.AlbumId = albums.AlbumId
+JOIN 
+    media_types ON tracks.MediaTypeId = media_types.MediaTypeId
+JOIN 
+    genres ON tracks.GenreId = genres.GenreId;
+
+--Q.Show the total sales made by each sales agent.
+
+--Q.Which sales agent made the most dollars in sales in 2009?
