@@ -1,0 +1,11 @@
+WITH safety_rating_table AS (
+select street, avg(safetyrating) as 'rating'
+from CityBikeLanes
+group by street
+)
+
+select street,
+rating,
+'safe lane' as 'label'
+from safety_rating_table
+where rating >= 4
