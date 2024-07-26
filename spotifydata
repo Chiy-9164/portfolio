@@ -25,3 +25,13 @@ time_signature integer NOT NULL
 select song_key, artist_name
 from BIT_DB.Spotifydata
 where artist_name='BTS'
+
+WITH tempTable AS (
+  SELECT artist_name, avg(popularity) as avg_popularity
+  FROM Spotifydata
+  group by popularity
+)
+
+SELECT  artist_name, avg_popularity, 'Top Star' as tag
+from tempTable
+where avg_popularity <= 90
