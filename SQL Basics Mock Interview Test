@@ -1,0 +1,52 @@
+Questions:
+Basic Data Retrieval:
+Write a query to select all columns from the Employees table.
+
+select *
+from employees;
+
+Retrieve the first and last names of employees who work in the Marketing department.
+
+select first_name, last_name, department_name
+from employees, departments 
+where department_name = 'Marketing';
+
+Data Filtering:
+Find the employees hired after January 1, 2020.
+
+select distinct hire_date, first_name, last_name
+from employees
+where hire_date > '2020';
+
+List the employees who earn a salary greater than 60,000.
+
+select salary, first_name, last_name
+from employees
+where salary > '60,000'
+
+Aggregation and Grouping:
+Calculate the average salary for each department.
+Count the number of employees hired each year.
+
+Joins:
+Write a query to display each employee’s full name and the department they belong to.
+Retrieve the list of departments along with the number of employees in each.
+
+Sorting and Ordering:
+List employees ordered by their hire date in descending order.
+Display employees sorted by their salary, from highest to lowest.
+
+Data Modification:
+Update the salary of employees in the Sales department by increasing it by 5%.
+Delete employees who were hired before 2020.
+
+Complex Queries:
+Find the highest salary across all departments.
+Write a query to display employees whose salary is above the average salary in their department.
+
+Subqueries:
+Write a query to find employees who have the highest salary in their respective department.
+Retrieve the names of employees who are not in the HR department.
+
+Challenge Question:
+Create a query that returns the department name and the total salary paid to employees in that department.
